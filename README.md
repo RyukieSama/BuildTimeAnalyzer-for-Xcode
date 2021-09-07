@@ -1,4 +1,4 @@
-Build Time Analyzer for Xcode
+Build Time Analyzer for Xcode 中文使用手册
 ======================
 
 [![GitHub release](https://img.shields.io/github/release/RobertGummesson/BuildTimeAnalyzer-for-Xcode.svg)](https://github.com/RobertGummesson/BuildTimeAnalyzer-for-Xcode/releases/latest)
@@ -6,46 +6,53 @@ Build Time Analyzer for Xcode
 [![Platform](https://img.shields.io/badge/platform-osx-blue.svg)](https://github.com/RobertGummesson/BuildTimeAnalyzer-for-Xcode)
 [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-## Overview
+[原ReadMe](README-EN.md)
+# 使用说明
 
-Build Time Analyzer is a macOS app that shows you a break down of Swift build times. See [this post]( https://medium.com/p/fc92cdd91e31) and [this post](https://medium.com/p/37b0a7514cbe) on Medium for context. 
+首先 Clone 项目代码（或者直接下载代码）
 
-## Usage
+```
+git clone https://github.com/RyukieSama/BuildTimeAnalyzer-for-Xcode.git
+```
 
-Open up the app and follow the instructions.
+## 一、 项目配置
 
-![screenshot.png](https://raw.githubusercontent.com/RobertGummesson/BuildTimeAnalyzer-for-Xcode/master/Screenshots/screenshot.png)
+在 `BuildSettings` 中 `other swift flags` 下添加下面的配置：
 
-## Installation
+* -Xfrontend -debug-time-function-bodies
 
-Download the code and open it in Xcode, archive the project and export the build. Easy, right?
+然后 `Clean` 项目，重新 `Build`。
 
-## Contributions
+## 二、 打开 BuildTimeAnalyzer.xcodeproj
 
-If you encounter any issues or have ideas for improvement, I am open to code contributions.
+这里有两种方式来使用
 
-## License
+### 1. 直接运行
 
-    Copyright (c) 2016-2018, Robert Gummesson
-    All rights reserved.
+![直接运行](01.png)
 
-    Redistribution and use in source and binary forms, with or without
-    modification, are permitted provided that the following conditions are met:
+### 2. 导出App
 
-    * Redistributions of source code must retain the above copyright notice, this
-      list of conditions and the following disclaimer.
+`Product - Archive`
 
-    * Redistributions in binary form must reproduce the above copyright notice,
-      this list of conditions and the following disclaimer in the documentation
-      and/or other materials provided with the distribution.
+![导出App](02.png)
 
-    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-    ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-    DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-    FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-    DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
-    OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-    CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-    OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+导出一个App文件，以后即可直接使用了。
+
+![App](03.png)
+
+### 3. 懒人方式-下载即用
+
+这里我搞好了一个包，直接可用。支持 `Intel`， `Apple Silicon`。
+
+[BuildTimeAnalyzer.zip](BuildTimeAnalyzer.zip)
+
+## 三、 查看日志
+
+![04](04.png)
+
+在列表中点击刚才自己的配置完成并编译后的项目，即可查看日志。
+
+![05](05.png)
+
+显示了整体编译耗时，还标有具体代码的行数与函数名，点击可跳转。
